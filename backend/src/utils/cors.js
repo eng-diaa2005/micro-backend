@@ -1,9 +1,11 @@
 import cors from 'cors';
 
-const allowedOrigins = (
-  process.env.ALLOWED_ORIGINS || 'https://automation-one-rosy.vercel.app,http://localhost:5173,http://127.0.0.1:5173'
-)
-  .split(',')
+const allowedOrigins = [
+  'https://automation-one-rosy.vercel.app',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  ...(process.env.ALLOWED_ORIGINS || '').split(',')
+]
   .map(origin => origin.trim())
   .filter(Boolean);
 
