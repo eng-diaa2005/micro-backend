@@ -1,0 +1,30 @@
+:root {
+  --navy-dark: #081d3e;
+  --navy: #0b2a5b;
+  --navy2: #123a7a;
+  --navy-light: #2154a6;
+  --teal: #0e8f8f;
+  --teal-bright: #14b8a6;
+  --ink: #0b2a5b;
+  --mute: #536d93;
+  --border-light: rgba(255, 255, 255, 0.85);
+  --card-shadow: 0 16px 36px rgba(18, 58, 122, 0.12), 0 2px 6px rgba(18, 58, 122, 0.05);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  margin: 0;
+  font-family: "Poppins", "Cairo", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(900px 500px at 94% -10%, #bfd4f8 0, transparent 65%),
+              radial-gradient(720px 500px at 100% 105%, #c8daf8 0, transparent 62%),
+              radial-gradient(750px 480px at 25% 112%, #d7e4fb 0, transparent 65%),
+              #e8f0fc;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+svg { display: block; }
+.app {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  min-height: 100vh;
+}

@@ -1,0 +1,312 @@
+/* =========================================================
+   SETTINGS OVERLAY & TABBED SYSTEM VIEW
+   ========================================================= */
+.view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+.view-hidden {
+  display: none !important;
+}
+
+/* Settings View UI */
+.settings-header-banner {
+  background: linear-gradient(135deg, #092652 0%, #123d7e 100%);
+  border-radius: 26px;
+  padding: 24px 30px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 14px 32px rgba(11, 42, 91, 0.22);
+}
+.settings-banner-info h2 {
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.settings-banner-info p {
+  font-size: 15px;
+  color: #c4dcff;
+  margin-top: 4px;
+}
+.btn-back-dash {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+.btn-back-dash:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateX(-3px);
+}
+[dir="rtl"] .btn-back-dash:hover {
+  transform: translateX(3px);
+}
+
+/* Tabs Bar */
+.settings-tabs-bar {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 8px;
+  border-radius: 22px;
+  border: 1.5px solid #fff;
+  box-shadow: 0 6px 18px rgba(18, 58, 122, 0.08);
+}
+.tab-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  color: #48628b;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0b2a5b;
+}
+.tab-btn.active {
+  background: #ffffff;
+  color: #0b2a5b;
+  box-shadow: 0 4px 14px rgba(18, 58, 122, 0.14);
+}
+.tab-btn.active svg {
+  stroke: #1255be;
+}
+
+/* Tab Content Panels */
+.tab-content {
+  display: none;
+  grid-template-columns: 1fr 340px;
+  gap: 22px;
+}
+.tab-content.active {
+  display: grid;
+}
+
+.settings-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid #ffffff;
+  border-radius: 26px;
+  padding: 26px 30px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.settings-section-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0b2a5b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid #e1ecfc;
+}
+
+/* Form controls */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.setting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.setting-label {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #0c2d60;
+}
+.setting-desc {
+  font-size: 13.5px;
+  color: #55729e;
+}
+
+/* Switch toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #cbd5e1;
+  transition: .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 28px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  inset-inline-start: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+}
+input:checked + .slider {
+  background-color: #1a6edb;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+[dir="rtl"] input:checked + .slider:before {
+  transform: translateX(-24px);
+}
+
+/* Sliders & Inputs */
+.range-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 260px;
+}
+.range-input {
+  flex: 1;
+  accent-color: #1961ce;
+  cursor: pointer;
+  height: 6px;
+}
+.range-badge {
+  font-size: 14px;
+  font-weight: 700;
+  color: #123a7a;
+  background: #e6f0fe;
+  padding: 4px 12px;
+  border-radius: 12px;
+  min-width: 60px;
+  text-align: center;
+  border: 1px solid #c7dcfc;
+}
+
+/* PIN inputs */
+.pin-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 6px;
+}
+.pin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pin-field label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #3b5780;
+}
+.pin-field input {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1.5px solid #c9dcfa;
+  background: #ffffff;
+  font-size: 15px;
+  color: #0b2a5b;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+.pin-field input:focus {
+  border-color: #216ce0;
+  box-shadow: 0 0 0 3px rgba(33, 108, 224, 0.2);
+}
+.btn-save-sm {
+  background: linear-gradient(180deg, #1b4b9b, #0b2a5b);
+  color: #fff;
+  border: none;
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  align-self: flex-end;
+}
+.btn-save-sm:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Side live helper widget inside settings */
+.settings-side-widget {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid #ffffff;
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.widget-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b2a5b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chip-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip-btn {
+  background: #edf4fe;
+  border: 1px solid #c8dcf9;
+  color: #123a7a;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.chip-btn.selected {
+  background: #195ec9;
+  color: #ffffff;
+  border-color: #195ec9;
+  box-shadow: 0 2px 8px rgba(25, 94, 201, 0.35);
+}
