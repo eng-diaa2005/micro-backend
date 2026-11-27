@@ -1,6 +1,6 @@
 import { authHeader, getSession } from './auth';
 
-const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const API_BASE = (import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://site--micro-backend--frnx8hhjqbdg.code.run' : '')).replace(/\/$/, '');
 
 const request = async (path, options = {}) => {
   const res = await fetch(`${API_BASE}${path}`, {

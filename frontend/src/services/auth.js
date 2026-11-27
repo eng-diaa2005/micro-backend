@@ -1,6 +1,6 @@
 // Set VITE_API_URL to use a different backend, otherwise the Vite dev server proxies /auth and /device.
 export const DEMO = false;
-const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const API_BASE = (import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://site--micro-backend--frnx8hhjqbdg.code.run' : '')).replace(/\/$/, '');
 export const ENDPOINTS = {
   login: '/auth/login',
   signup: '/auth/verify',       // Sends activation OTP
